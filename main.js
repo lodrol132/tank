@@ -85,12 +85,50 @@ loader.load('./files/t-14_armata.glb', (object)=> {
 
 );
 
+let isDragging = false;
+let previousMousePosition = {
+    x: 0,
+    y: 0
+};
 
-document.addEventListener("mouseover", (event)=>{
-    console.log(event)
+const canvas = renderer.domElement;
+
+// Обработчики событий мыши
+canvas.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    previousMousePosition = {
+        x: e.clientX,
+        y: e.clientY
+    };
 });
 
+canvas.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
 
+    const deltaMove = {
+        x: e.clientX - previousMousePosition.x,
+        y: e.clientY - previousMousePosition.y
+    };
+
+    if (model) {
+        // Вращение вокруг осей Y и X
+        model.rotation.y += deltaMove.x * 0.01;
+        model.rotation.x += deltaMove.y * 0.01;
+    }
+
+    previousMousePosition = {
+        x: e.clientX,
+        y: e.clientY
+    };
+});
+
+canvas.addEventListener('mouseup', () => {
+    isDragging = false;
+});
+
+canvas.addEventListener('mouseleave', () => {
+    isDragging = false;
+});
 
 function animate() {
     cube2.rotation.x += 0.01;

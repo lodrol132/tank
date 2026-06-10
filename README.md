@@ -21,35 +21,35 @@ Workspace
 ├── MaterialService
 ├── ReplicatedFirst
 ├── ReplicatedStorage
-│   ├── Config.lua
-│   ├── Constants.lua
-│   ├── Types.lua
-│   ├── Utils.lua
-│   ├── TopBar.lua
-│   ├── TerritoryInfoPanel.lua
-│   ├── BuildMenu.lua
-│   ├── Leaderboard.lua
-│   └── MapController.lua
+│   ├── Config.lua (ModuleScript)
+│   ├── Constants.lua (ModuleScript)
+│   ├── Types.lua (ModuleScript)
+│   ├── Utils.lua (ModuleScript)
+│   ├── TopBar.lua (ModuleScript)
+│   ├── TerritoryInfoPanel.lua (ModuleScript)
+│   ├── BuildMenu.lua (ModuleScript)
+│   ├── Leaderboard.lua (ModuleScript)
+│   └── MapController.lua (ModuleScript)
 ├── ServerScriptService
 │   ├── Main.lua (Script)
 │   ├── Managers (Folder)
-│   │   ├── Config.lua
-│   │   ├── Constants.lua
-│   │   ├── Utils.lua
-│   │   ├── TerritoryManager.lua
-│   │   ├── ResourceManager.lua
-│   │   ├── CombatSystem.lua
-│   │   ├── BuildingSystem.lua
-│   │   └── GameManager.lua
+│   │   ├── Config.lua (ModuleScript)
+│   │   ├── Constants.lua (ModuleScript)
+│   │   ├── Utils.lua (ModuleScript)
+│   │   ├── TerritoryManager.lua (ModuleScript)
+│   │   ├── ResourceManager.lua (ModuleScript)
+│   │   ├── CombatSystem.lua (ModuleScript)
+│   │   ├── BuildingSystem.lua (ModuleScript)
+│   │   └── GameManager.lua (ModuleScript)
 │   └── Services (Folder)
-│       └── NetworkHandler.lua
+│       └── NetworkHandler.lua (ModuleScript)
 ├── ServerStorage
 ├── StarterGui
 │   └── ScreenGui (автоматически создан Client/Main.lua)
 ├── StarterPack
 ├── StarterPlayer
 │   ├── StarterPlayerScripts (Folder)
-│   │   └── Main.lua (LocalScript для клиента)
+│   │   └── Main.lua (LocalScript)
 │   └── StarterCharacterScripts
 ├── Teams
 ├── SoundService
@@ -62,50 +62,50 @@ Workspace
 ### Шаг 1: Скопировать файлы конфигурации в ReplicatedStorage
 
 1. Откройте Roblox Studio и создайте новый проект
-2. Щелкните правой кнопкой на **ReplicatedStorage** → Insert Object → LocalScript
-3. Удалите LocalScript и скопируйте туда следующие файлы:
+2. Щелкните правой кнопкой на **ReplicatedStorage** → Insert Object → ModuleScript
+3. Замените содержимое на содержимое файла из репозитория
 
-**Из папки src/Shared/**
-- `Config.lua` → ReplicatedStorage
-- `Constants.lua` → ReplicatedStorage
-- `Types.lua` → ReplicatedStorage
-- `Utils.lua` → ReplicatedStorage
+**Из папки src/Shared/ (как ModuleScript)**
+- `Config.lua` → ReplicatedStorage (ModuleScript)
+- `Constants.lua` → ReplicatedStorage (ModuleScript)
+- `Types.lua` → ReplicatedStorage (ModuleScript)
+- `Utils.lua` → ReplicatedStorage (ModuleScript)
 
-**Из папки src/Client/UI/**
-- `TopBar.lua` → ReplicatedStorage
-- `TerritoryInfoPanel.lua` → ReplicatedStorage
-- `BuildMenu.lua` → ReplicatedStorage
-- `Leaderboard.lua` → ReplicatedStorage
+**Из папки src/Client/UI/ (как ModuleScript)**
+- `TopBar.lua` → ReplicatedStorage (ModuleScript)
+- `TerritoryInfoPanel.lua` → ReplicatedStorage (ModuleScript)
+- `BuildMenu.lua` → ReplicatedStorage (ModuleScript)
+- `Leaderboard.lua` → ReplicatedStorage (ModuleScript)
 
-**Из папки src/Client/Controllers/**
-- `MapController.lua` → ReplicatedStorage
+**Из папки src/Client/Controllers/ (как ModuleScript)**
+- `MapController.lua` → ReplicatedStorage (ModuleScript)
 
 ### Шаг 2: Создать папку Managers в ServerScriptService
 
 1. Щелкните правой кнопкой на **ServerScriptService** → Insert Object → Folder
 2. Назовите папку **Managers**
-3. Скопируйте туда следующие файлы:
+3. Добавьте туда файлы:
 
-**Из папки src/Server/Managers/**
-- `TerritoryManager.lua`
-- `ResourceManager.lua`
-- `CombatSystem.lua`
-- `BuildingSystem.lua`
-- `GameManager.lua`
+**Из папки src/Server/Managers/ (как ModuleScript)**
+- `TerritoryManager.lua` (ModuleScript)
+- `ResourceManager.lua` (ModuleScript)
+- `CombatSystem.lua` (ModuleScript)
+- `BuildingSystem.lua` (ModuleScript)
+- `GameManager.lua` (ModuleScript)
 
-**Также из папки src/Shared/ (скопируйте еще раз в Managers)**
-- `Config.lua`
-- `Constants.lua`
-- `Utils.lua`
+**Также из папки src/Shared/ (как ModuleScript)**
+- `Config.lua` (ModuleScript)
+- `Constants.lua` (ModuleScript)
+- `Utils.lua` (ModuleScript)
 
 ### Шаг 3: Создать папку Services в ServerScriptService
 
 1. Щелкните правой кнопкой на **ServerScriptService** → Insert Object → Folder
 2. Назовите папку **Services**
-3. Скопируйте туда:
+3. Добавьте туда:
 
-**Из папки src/Server/Services/**
-- `NetworkHandler.lua`
+**Из папки src/Server/Services/ (как ModuleScript)**
+- `NetworkHandler.lua` (ModuleScript)
 
 ### Шаг 4: Добавить главный серверный скрипт
 
@@ -113,19 +113,48 @@ Workspace
 2. Назовите его **Main**
 3. Замените содержимое на содержимое `src/Server/Main.lua`
 
+**📌 ТИП: Script (это серверный скрипт)**
+
 ### Шаг 5: Добавить главный клиентский скрипт
 
-1. Щелкните правой кнопкой на **StarterPlayer** → Insert Object → Folder
+1. Щелкните правой кнопкой на **StarterPlayer** → Insert Object → Folder (если нет)
 2. Назовите папку **StarterPlayerScripts** (если ее нет)
 3. Щелкните правой кнопкой на **StarterPlayerScripts** → Insert Object → LocalScript
 4. Назовите его **Main**
 5. Замените содержимое на содержимое `src/Client/Main.lua`
 
+**📌 ТИП: LocalScript (это клиентский скрипт)**
+
+## 🎯 Сводка типов скриптов
+
+| Путь | Файл | Тип | Описание |
+|------|------|-----|---------|
+| ReplicatedStorage | Config.lua | ModuleScript | Конфигурация игры |
+| ReplicatedStorage | Constants.lua | ModuleScript | Константы и типы событий |
+| ReplicatedStorage | Types.lua | ModuleScript | Типы данных |
+| ReplicatedStorage | Utils.lua | ModuleScript | Утилиты |
+| ReplicatedStorage | TopBar.lua | ModuleScript | UI верхняя панель |
+| ReplicatedStorage | TerritoryInfoPanel.lua | ModuleScript | UI информация территории |
+| ReplicatedStorage | BuildMenu.lua | ModuleScript | UI меню построек |
+| ReplicatedStorage | Leaderboard.lua | ModuleScript | UI таблица лидеров |
+| ReplicatedStorage | MapController.lua | ModuleScript | Контроллер карты |
+| ServerScriptService | Main.lua | **Script** | Главный серверный скрипт |
+| ServerScriptService > Managers | TerritoryManager.lua | ModuleScript | Управление территориями |
+| ServerScriptService > Managers | ResourceManager.lua | ModuleScript | Система ресурсов |
+| ServerScriptService > Managers | CombatSystem.lua | ModuleScript | Боевая система |
+| ServerScriptService > Managers | BuildingSystem.lua | ModuleScript | Система построек |
+| ServerScriptService > Managers | GameManager.lua | ModuleScript | Управление игрой |
+| ServerScriptService > Managers | Config.lua | ModuleScript | Конфигурация (копия) |
+| ServerScriptService > Managers | Constants.lua | ModuleScript | Константы (копия) |
+| ServerScriptService > Managers | Utils.lua | ModuleScript | Утилиты (копия) |
+| ServerScriptService > Services | NetworkHandler.lua | ModuleScript | Сетевой обработчик |
+| StarterPlayer > StarterPlayerScripts | Main.lua | **LocalScript** | Главный клиентский скрипт |
+
 ## 🎮 Основные системы
 
 ### Серверная часть (ServerScriptService)
 
-#### **TerritoryManager** - управление территориями
+#### **TerritoryManager** (ModuleScript) - управление территориями
 ```lua
 TerritoryManager:Initialize()
 TerritoryManager:GetTerritory(id)
@@ -134,7 +163,7 @@ TerritoryManager:SetOwner(territoryId, newOwner)
 TerritoryManager:CanAttack(sourceId, targetId)
 ```
 
-#### **ResourceManager** - система ресурсов
+#### **ResourceManager** (ModuleScript) - система ресурсов
 ```lua
 ResourceManager:InitializePlayer(playerId)
 ResourceManager:GetResources(playerId)
@@ -143,21 +172,21 @@ ResourceManager:SpendResources(playerId, costTable)
 ResourceManager:GenerateResourcesFromTerritories(territoriesManager)
 ```
 
-#### **CombatSystem** - боевая механика
+#### **CombatSystem** (ModuleScript) - боевая механика
 ```lua
 CombatSystem:AttackTerritory(attacker, sourceTerrId, targetTerrId, troops, territoryMgr, resourceMgr)
 CombatSystem:CalculateAttackPower(territory, troops)
 CombatSystem:CalculateDefensePower(territory)
 ```
 
-#### **BuildingSystem** - постройки
+#### **BuildingSystem** (ModuleScript) - постройки
 ```lua
 BuildingSystem:ConstructBuilding(owner, territoryId, buildingType, resourceMgr)
 BuildingSystem:GetBuildingsByTerritory(territoryId)
 BuildingSystem:UpgradeBuilding(buildingId, resourceMgr)
 ```
 
-#### **GameManager** - игровой цикл
+#### **GameManager** (ModuleScript) - игровой цикл
 ```lua
 GameManager:StartGame()
 GameManager:AddPlayer(playerId, playerName)
@@ -166,27 +195,27 @@ GameManager:GetTimeRemaining()
 
 ### Клиентская часть (StarterPlayer > StarterPlayerScripts)
 
-#### **TopBar** - верхняя панель ресурсов
+#### **TopBar** (ModuleScript) - верхняя панель ресурсов
 - 📊 Отображение 6 ресурсов
 - ⏱️ Таймер игры
 - ⚙️ Кнопка настроек
 
-#### **MapController** - визуали��ация карты
+#### **MapController** (ModuleScript) - визуализация карты
 - 🗺️ Сетка 16x12 регионов
 - 🎨 Цветная визуализация
 - 🖱️ Система выбора территорий
 
-#### **TerritoryInfoPanel** - информация о территории
+#### **TerritoryInfoPanel** (ModuleScript) - информация о территории
 - 📍 Данные выбранной территории
 - 📦 Ресурсы региона
 - 🪖 Количество войск
 
-#### **BuildMenu** - меню построек
+#### **BuildMenu** (ModuleScript) - меню построек
 - 🏗️ Список всех зданий
 - 💰 Стоимость и требования
 - 📊 Категоризация
 
-#### **Leaderboard** - таблица лидеров
+#### **Leaderboard** (ModuleScript) - таблица лидеров
 - 🏆 Топ игроков
 - 📊 Ранжирование
 
